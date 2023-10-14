@@ -1,0 +1,17 @@
+server:
+  port: 8895
+
+spring:
+  datasource:
+    username: iselab
+    password: nKtpzTn8x2Txp7by
+    url: jdbc:mysql://124.222.201.239:3306/iselab?useUnicode=true&characterEncoding=utf-8
+
+minio:
+  endpoint: http://121.40.252.139:9100
+  bucketName: test01
+  accessKey: zVdM9ptRUW6H7aJeyebh
+  secretKey: BFCXs7OYuRhCOaxW69CVq0OC1tN7hbHpjMdIaFNV
+
+knife4j:
+  enable: true
