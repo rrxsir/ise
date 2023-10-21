@@ -6,6 +6,15 @@ spring:
     username: iselab
     password: nKtpzTn8x2Txp7by
     url: jdbc:mysql://124.222.201.239:3306/iselab?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 
 minio:
   endpoint: http://121.40.252.139:9100
