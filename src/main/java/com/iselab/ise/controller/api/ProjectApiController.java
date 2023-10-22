@@ -1,10 +1,10 @@
 package com.iselab.ise.controller.api;
 
 import com.iselab.ise.common.Result;
-import com.iselab.ise.model.DTO.slides.SlidesAddRequest;
-import com.iselab.ise.model.DTO.slides.SlidesEditRequest;
-import com.iselab.ise.model.POJO.Slides;
-import com.iselab.ise.service.SlidesService;
+import com.iselab.ise.model.DTO.project.ProjectAddRequest;
+import com.iselab.ise.model.DTO.project.ProjectEditRequest;
+import com.iselab.ise.model.POJO.Project;
+import com.iselab.ise.service.ProjectService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -16,50 +16,50 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Api(tags = "轮播图后台api")
+@Api(tags = "论文后台api")
 @RestController
-@RequestMapping("/slides")
+@RequestMapping("/project")
 @Slf4j
-public class SlidesApiController {
-    private final SlidesService slidesService;
+public class ProjectApiController {
+    private final ProjectService projectService;
 
-    public SlidesApiController(SlidesService slidesService) {
-        this.slidesService = slidesService;
+    public ProjectApiController(ProjectService projectService) {
+        this.projectService = projectService;
     }
 
     @ApiOperation(value = "获取所有")
     @GetMapping("/getAll")
     public Result<?> getAll() {
-        return Result.success(slidesService.getAll());
+        return Result.success(projectService.getAll());
     }
 
     @ApiOperation(value = "获取所有（分页）")
     @GetMapping("/getByPage")
     public Result<?> getByPage(Integer page, Integer pageSize) {
         Pageable pageable = PageRequest.of(page, pageSize);
-        return Result.success(slidesService.getAll(pageable));
+        return Result.success(projectService.getAll(pageable));
     }
 
     @ApiOperation(value = "添加")
     @PostMapping("/insert")
-    public Result<?> insert(SlidesAddRequest slidesAddRequest) {
-        Slides slides = new Slides();
-        BeanUtils.copyProperties(slidesAddRequest, slides);
-        return Result.success(slidesService.add(slides));
+    public Result<?> insert(ProjectAddRequest projectAddRequest) {
+        Project project = new Project();
+        BeanUtils.copyProperties(projectAddRequest, project);
+        return Result.success(projectService.add(project));
     }
 
     @ApiOperation(value = "修改")
     @PostMapping("/update")
-    public Result<?> update(SlidesEditRequest slidesEditRequest) {
-        Slides slides = new Slides();
-        BeanUtils.copyProperties(slidesEditRequest, slides);
-        return Result.success(slidesService.update(slides));
+    public Result<?> update(ProjectEditRequest projectEditRequest) {
+        Project project = new Project();
+        BeanUtils.copyProperties(projectEditRequest, project);
+        return Result.success(projectService.update(project));
     }
 
 
     @ApiOperation(value = "删除")
     @PostMapping("/delete")
     public Result<?> delete(Long id) {
-        return Result.success(slidesService.delete(id));
+        return Result.success(projectService.delete(id));
     }
 }

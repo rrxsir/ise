@@ -21,32 +21,32 @@ public class SlidesServiceImpl implements SlidesService {
     }
 
     @Override
-    public Slides getSlidesById(Long id) {
+    public Slides getById(Long id) {
         return slidesRepository.findById(id).orElse(null);
     }
 
     @Override
-    public List<Slides> getAllSlides() {
+    public List<Slides> getAll() {
         return slidesRepository.findAll();
     }
 
     @Override
-    public Page<Slides> getAllSlides(Pageable pageable) {
+    public Page<Slides> getAll(Pageable pageable) {
         return slidesRepository.findAll(pageable);
     }
 
     @Override
-    public Slides addSlides(Slides slides) {
+    public Slides add(Slides slides) {
         return slidesRepository.save(slides);
     }
 
     @Override
-    public Slides updateSlides(Slides slides) {
+    public Slides update(Slides slides) {
         return slidesRepository.save(slides);
     }
 
     @Override
-    public boolean deleteSlides(Long id) {
+    public boolean delete(Long id) {
         slidesRepository.deleteById(id);
         return true;
     }

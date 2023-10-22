@@ -8,15 +8,15 @@ import java.util.List;
 
 public interface SlidesService {
 
-    Slides getSlidesById(Long id);
+    Slides getById(Long id);
 
-    List<Slides> getAllSlides();
+    List<Slides> getAll();
 
-    Slides addSlides(Slides slides);
+    Slides add(Slides slides);
 
-    Slides updateSlides(Slides slides);
+    Slides update(Slides slides);
 
-    boolean deleteSlides(Long id);
+    boolean delete(Long id);
 
-    Page<Slides> getAllSlides(Pageable pageable);
+    Page<Slides> getAll(Pageable pageable);
 }
